@@ -9,95 +9,6 @@
         * { box-sizing: border-box; font-family: sans-serif; }
         body { background: #f4f6f8; margin: 0; padding: 15px; }
         
-        .box { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 60px; } /* Kichik margin aloqa tugmasi uchun joy */
-        h2 { color: #2e7d32; text-align: center; margin-top: 0; font-size: 20px; }
-        
-        .label { font-weight: bold; font-size: 14px; margin-top: 12px; margin-bottom: 5px; color: #333; display: block; }
-        
-        select, textarea {
-            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; background: #fafafa;
-        }
-        textarea { height: 90px; resize: none; }
-        
-        .btn {
-            background: #2e7d32; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; margin-top: 15px; font-size: 16px; cursor: pointer;
-        }
-        .btn:active { opacity: 0.8; }
-        
-        .result { display: none; background: #e8f5e9; border-radius: 8px; padding: 12px; margin-top: 15px; font-size: 14px; line-height: 1.5; color: #1b5e20; white-space: pre-line; border-left: 4px solid #2e7d32; }
-        .loading { display: none; text-align: center; margin-top: 10px; color: #2e7d32; font-weight: bold; }
-
-        /* Pastdagi aloqa tugmasi uchun stillar */
-        .footer-feedback {
-            position: fixed;
-            bottom: 10px;
-            left: 15px;
-            right: 15px;
-            text-align: center;
-        }
-        .btn-feedback {
-            background: rgba(0, 136, 204, 0.1); /* Telegram ko'k rangining shaffof varianti */
-            color: #0088cc;
-            text-decoration: none;
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid rgba(0, 136, 204, 0.3);
-            transition: 0.2s;
-        }
-        .btn-feedback:active { background: rgba(0, 136, 204, 0.2); }
-    </style>
-</head>
-<body>
-
-    <div class="box">
-        <h2>🩺 AI Diagnostika</h2>
-
-        <span class="label">1. Hayvonni tanlang:</span>
-        <select id="animal">
-            <option>🐄 Qoramol (Mol)</option>
-            <option>🐑 Qo'y / Echki</option>
-            <option>🐎 Ot</option>
-            <option>🐔 Parranda</option>
-            <option>🐾 Boshqa</option>
-        </select>
-
-        <span class="label">2. Kasallik belgilarini yozing:</span>
-        <textarea id="symptoms" placeholder="Masalan: Yemamayapti, isitmasi bor, holi yo'q..."></textarea>
-
-        <button class="btn" onclick="askAI()">🤖 Tahlil Qilish</button>
-
-        <div class="loading" id="loading">⏳ Sun'iy intellekt tahlil qilmoqda...Ishlamayotganining sababi — siz yuborgan rasmdagi `index.html` kodi hali ham eski kod bo'lib, u faqat "Tez kunda ishga tushadi!" degan xabarni chiqarishga sozlangan. 
-
-AI ishlamashi, undan tashxis olish va pastda dasturchi bilan aloqa tugmasi paydo bo'lishi uchun, men bergan **to'liq va yangi kodni** GitHub'dagi `index.html` fayliga joylab, saqlashingiz kerak. Boshqa iloji yo'q.
-
-Keling, buni bittada va to'g'ri qilamiz. Men so'nggi bor mutlaqo tayyor kodni beraman. Hech qanday "Tez kunda..." degan xato bo'lmaydi.
-
-### 1-Qadam: GitHub Pages'da Faylni Tahrirlash rejimini ochish
-
-GitHub repozitoriyangizda `index.html` faylini oching va tepada o'ng tomondagi **qalamcha (Edit this file)** belgisini bosing. Bu juda muhim, tahrirlash rejimiga o'tmasangiz kodni o'zgartira olmaysiz.
-
-### 2-Qadam: Eski Kodni To'liq O'chirish
-
-Ochilgan matn tahrirlovchisidagi (kod yozilgan oynadagi) **barcha yozuvlarni** tanlab o'chirib tashlang. Sahifa butunlay bo'sh bo'lishi kerak.
-
-### 3-Qadam: Yangi Kodni Joylash
-
-Mana bu kodni to'lig'icha nusxalab, bo'sh sahifaga joylashtiring. Bu kodda barcha funksiyalar va aloqa tugmasi bor:
-
-```html
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroVet AI — Diagnostika</title>
-    <script src="[https://telegram.org/js/telegram-web-app.js](https://telegram.org/js/telegram-web-app.js)"></script>
-    <style>
-        * { box-sizing: border-box; font-family: sans-serif; }
-        body { background: #f4f6f8; margin: 0; padding: 15px; }
-        
         .box { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
         h2 { color: #2e7d32; text-align: center; margin-top: 0; font-size: 20px; }
         
@@ -117,7 +28,7 @@ Mana bu kodni to'lig'icha nusxalab, bo'sh sahifaga joylashtiring. Bu kodda barch
         .loading { display: none; text-align: center; margin-top: 10px; color: #2e7d32; font-weight: bold; }
         
         .feedback-box { text-align: center; margin-top: 20px; padding: 10px; }
-        .feedback-link { color: #888; font-size: 11px; text-decoration: none; }
+        .feedback-link { color: #888; font-size: 12px; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -145,14 +56,14 @@ Mana bu kodni to'lig'icha nusxalab, bo'sh sahifaga joylashtiring. Bu kodda barch
     </div>
 
     <div class="feedback-box">
-        <a href="[https://t.me/jovliyev_bekzod](https://t.me/jovliyev_bekzod)" class="feedback-link">Feedback @jovliyev_bekzod</a>
+        <a href="https://t.me/jovliyev_bekzod" class="feedback-link">Feedback @jovliyev_bekzod</a>
     </div>
 
     <script>
         const tg = window.Telegram.WebApp;
         tg.expand();
 
-        const API_KEY = "AQ.Ab8RN6K5ZbXR5PrL38mcvoqM84h93bZVoSs0hYHBa2U2UjWUqA";
+        const API_KEY = "AQ.Ab8RN6K-OkXE1FHRrJG8EZjYY692tw5ZsavJPpxigZCoSavXiQ";
 
         async function askAI() {
             const animal = document.getElementById('animal').value;
@@ -166,16 +77,16 @@ Mana bu kodni to'lig'icha nusxalab, bo'sh sahifaga joylashtiring. Bu kodda barch
             document.getElementById('loading').style.display = 'block';
             document.getElementById('result').style.display = 'none';
 
-            const systemPrompt = `Siz tajribali veterinarsiz. 
+            const systemPrompt = `Siz tajribali va ehtiyotkor veterinarsiz. 
 Foydalanuvchi hayvon turi: ${animal}. 
 Belgilar: ${symptoms}. 
 O'zbek tilida, juda tushunarli va sodda qilib: 
-1. Ehtimoliy taxminiy tashxis. 
-2. Birinchi yordam. 
-3. Tavsiya etiladigan choralar haqida qisqa javob bering.`;
+1. 📌 Ehtimoliy tashxis. 
+2. 💡 Birinchi yordam. 
+3. 💊 Tavsiya etiladigan choralar haqida javob bering.`;
 
             try {
-                const response = await fetch(`[https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$](https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$){API_KEY}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -191,7 +102,7 @@ O'zbek tilida, juda tushunarli va sodda qilib:
                     document.getElementById('result').innerText = aiReply;
                     document.getElementById('result').style.display = 'block';
                 } else {
-                    alert("AI javob berishda xatolik yuz berdi. API so'rovi qabul qilinmadi.");
+                    alert("AI so'rovni tahlil qila olmadi. Qaytadan urinib ko'ring.");
                 }
             } catch (error) {
                 document.getElementById('loading').style.display = 'none';
